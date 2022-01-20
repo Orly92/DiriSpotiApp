@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {SpotifyTokenRespModel} from "../models/spotifyTokenResp";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,6 @@ export class SpotifyTokenService {
     this.clientId = "f485685a4918473d87a25557024112d0";
     this.clientSecret = "a9025eb6d37b4d8ab5f840aa81f83715";
     this.grantType = "client_credentials";
-
-    console.log(this.tokenExpiresDate);
   }
 
   async getToken(){
@@ -39,12 +38,11 @@ export class SpotifyTokenService {
        .set('client_id', this.clientId)
        .set('client_secret', this.clientSecret);
 
-      this.http.post("https://accounts.spotify.com/api/token",body.toString(),{
+      this.http.post<SpotifyTokenRespModel>("https://accounts.spotify.com/api/token",body.toString(),{
         headers: header
       }).subscribe(resp => {
-        const bodyResponse = resp.body;
-        this.token = `${bodyResponse["token_type"]} ${bodyResponse["access_token"]}`;
-        this.tokenExpiresDate = new Date().setMilliseconds(bodyResponse["expires_in"]);
+        this.token = `${resp.token_type} ${resp.access_token}`;
+        this.tokenExpiresDate = new Date().setMilliseconds(resp.expires_in);
       });
   }
 }
