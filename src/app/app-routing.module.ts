@@ -11,6 +11,14 @@ const routes: Routes = [{
   path:'search',
   component:SearchComponent,
   pathMatch:'full'
+},{
+  path:'',
+  component:HomeComponent,
+  pathMatch:'full'
+},{
+  path:'**',
+  component:HomeComponent,
+  pathMatch:'full'
 }];
 
 @NgModule({
