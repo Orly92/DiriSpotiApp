@@ -22,7 +22,7 @@ export class SpotifyTokenService {
     this.grantType = "client_credentials";
   }
 
-  async getToken(){
+  async getToken() : Promise<string>{
     const dateExpires = new Date().setMinutes(-this.tokenExpiresDate);
     if(this.token === "" || this.tokenExpiresDate < dateExpires){
         await this.saveToken();

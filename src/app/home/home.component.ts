@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SpotifyService} from "../shared/spotify-service/spotify.service";
 
 @Component({
   selector: 'home',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected spotifyService:SpotifyService) {
+    this.spotifyService.getNewRelease();
+  }
 
   ngOnInit(): void {
   }
