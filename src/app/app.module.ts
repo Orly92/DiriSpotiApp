@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AlbumCardComponent } from './shared/album-card/album-card.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorComponent } from './shared/error/error.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchComponent,
     HomeComponent,
     HeaderComponent,
-    AlbumCardComponent
+    AlbumCardComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
