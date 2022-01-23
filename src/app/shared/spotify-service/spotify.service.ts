@@ -17,9 +17,9 @@ export class SpotifyService {
     const params = new HttpParams()
       .set("limit",21)
       .set("offset",0);
-
+    const token = await this.spotifyTokenService.getToken();
     const header = new HttpHeaders()
-      .set('Authorization', await this.spotifyTokenService.getToken());
+      .set('Authorization', token);
 
     return this.http.get(url,{headers:header,params:params});
   }
@@ -33,8 +33,9 @@ export class SpotifyService {
       .set("limit",21)
       .set("offset",0);
 
+    const token = await this.spotifyTokenService.getToken();
     const header = new HttpHeaders()
-      .set('Authorization', await this.spotifyTokenService.getToken());
+      .set('Authorization', token);
 
     return this.http.get(url,{headers:header,params:params});
   }

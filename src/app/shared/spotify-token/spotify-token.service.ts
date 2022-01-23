@@ -23,14 +23,14 @@ export class SpotifyTokenService {
   }
 
   async getToken() : Promise<string>{
-    const dateExpires = new Date().setMinutes(-this.tokenExpiresDate);
+    const dateExpires = new Date().setMilliseconds(-this.tokenExpiresDate);
     if(this.token === "" || this.tokenExpiresDate < dateExpires){
         await this.saveToken();
     }
     return this.token;
   }
 
-   private saveToken() {
+  private async saveToken() {
     const header = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
      const body = new HttpParams()
@@ -38,11 +38,13 @@ export class SpotifyTokenService {
        .set('client_id', this.clientId)
        .set('client_secret', this.clientSecret);
 
-      this.http.post<SpotifyTokenRespModel>("https://accounts.spotify.com/api/token",body.toString(),{
+      const resp = await this.http.post<SpotifyTokenRespModel>("https://accounts.spotify.com/api/token",
+        body.toString(),{
         headers: header
-      }).subscribe(resp => {
-        this.token = `${resp.token_type} ${resp.access_token}`;
-        this.tokenExpiresDate = new Date().setMilliseconds(resp.expires_in);
-      });
+      }).toPromise();
+    // @ts-ignore
+    this.token = `${resp.token_type} ${resp.access_token}`;
+    // @ts-ignore
+    this.tokenExpiresDate = new Date().setMilliseconds(resp.expires_in);
   }
 }

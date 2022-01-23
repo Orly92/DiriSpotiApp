@@ -7,13 +7,15 @@ import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
+import { AlbumCardComponent } from './shared/album-card/album-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    AlbumCardComponent
   ],
   imports: [
     BrowserModule,

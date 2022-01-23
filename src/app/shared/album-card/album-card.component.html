@@ -1,0 +1,9 @@
+<div class="card mb-4">
+  <img src="{{album.images[0].url}}" class="card-img-top" width="{{album.images[0].width}}"
+       height="{{album.images[0].height}}">
+  <div class="card-body">
+    <h5 class="card-title">{{album.name}}</h5>
+    <a class="btn btn-primary margin-artist" *ngFor="let artist of album.artists" type="button"
+       routerLink="/artist/{{artist.id}}">{{artist.name}}</a>
+  </div>
+</div>
