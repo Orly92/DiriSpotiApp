@@ -12,7 +12,7 @@ export class SpotifyService {
 
   constructor(protected spotifyTokenService:SpotifyTokenService,protected http:HttpClient) { }
 
-  async getNewRelease() :Observable<NewReleaseModel>{
+  async getNewRelease(){
     const url = "https://api.spotify.com/v1/browse/new-releases";
     const params = new HttpParams()
       .set("limit",21)
@@ -21,7 +21,22 @@ export class SpotifyService {
     const header = new HttpHeaders()
       .set('Authorization', await this.spotifyTokenService.getToken());
 
-    return this.http.get<Observable<NewReleaseModel>>(url,{headers:header,params:params});
+    return this.http.get(url,{headers:header,params:params});
+  }
+
+  async searchArtist(searchParam:string){
+    const url = "https://api.spotify.com/v1/search";
+    const params = new HttpParams()
+      .set("market","ES")
+      .set("type","artist")
+      .set("q","searchParam")
+      .set("limit",21)
+      .set("offset",0);
+
+    const header = new HttpHeaders()
+      .set('Authorization', await this.spotifyTokenService.getToken());
+
+    return this.http.get(url,{headers:header,params:params});
   }
 
 }
