@@ -1,4 +1,6 @@
 <div class="row">
+  <ngx-spinner name="spinner" [fullScreen]="true" type="ball-spin-clockwise"
+               size="medium"></ngx-spinner>
   <div class="col col-md-4 col-12" *ngFor="let item of itemsNewRelease">
     <album-card [album]="item"></album-card>
   </div>

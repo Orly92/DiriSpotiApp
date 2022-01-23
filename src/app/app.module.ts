@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AlbumCardComponent } from './shared/album-card/album-card.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AlbumCardComponent } from './shared/album-card/album-card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
