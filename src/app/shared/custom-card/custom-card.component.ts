@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ItemsNewReleaseModel} from "../models/ItemsNewReleaseModel";
+import {ItemsNewReleaseModel} from "../models/spotifyAPI/ItemsNewReleaseModel";
+import {CustomCardModel} from "../models/CustomCardModel";
 
 @Component({
   selector: 'custom-card',
@@ -9,7 +10,7 @@ import {ItemsNewReleaseModel} from "../models/ItemsNewReleaseModel";
 export class CustomCardComponent implements OnInit {
 
   @Input()
-  public album!: ItemsNewReleaseModel;
+  public cardInfo!: CustomCardModel;
 
   constructor() {
   }
