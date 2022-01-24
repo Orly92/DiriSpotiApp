@@ -10,10 +10,14 @@ import {NewReleaseModel} from "../../models/spotifyAPI/newReleaseModel";
 })
 export class SpotifyService {
 
-  constructor(protected spotifyTokenService:SpotifyTokenService,protected http:HttpClient) { }
+  protected spotifyUrl:string;
+
+  constructor(protected spotifyTokenService:SpotifyTokenService,protected http:HttpClient) {
+    this.spotifyUrl = "https://api.spotify.com/";
+  }
 
   async getNewRelease(){
-    const url = "https://api.spotify.com/v1/browse/new-releases";
+    const url = this.spotifyUrl + "v1/browse/new-releases";
     const params = new HttpParams()
       .set("limit",21)
       .set("offset",0);
@@ -25,7 +29,7 @@ export class SpotifyService {
   }
 
   async searchArtist(searchParam:string){
-    const url = "https://api.spotify.com/v1/search";
+    const url = this.spotifyUrl + "v1/search";
     const params = new HttpParams()
       .set("market","ES")
       .set("type","artist")
@@ -40,4 +44,23 @@ export class SpotifyService {
     return this.http.get(url,{headers:header,params:params});
   }
 
+  async getArtist(id:number){
+    const url = this.spotifyUrl + `v1/artists/${id}`;
+
+    const token = await this.spotifyTokenService.getToken();
+    const header = new HttpHeaders()
+      .set('Authorization', token);
+
+    return this.http.get(url,{headers:header});
+  }
+
+  async getTopTracksByArtist(id:number){
+    const url = this.spotifyUrl + `v1/artists/${id}/top-tracks`;
+
+    const token = await this.spotifyTokenService.getToken();
+    const header = new HttpHeaders()
+      .set('Authorization', token);
+
+    return this.http.get(url,{headers:header});
+  }
 }
