@@ -1,7 +1,7 @@
 <div class="card mb-4">
-  <img src="{{cardInfo.images[0].url}}" class="card-img-top"
-       width="{{cardInfo.images[0].width}}"
-       height="{{cardInfo.images[0].height}}">
+  <img src="{{cardInfo.images | noImage}}" class="card-img-top"
+       width="{{cardInfo.images | imageDimensions :'width'}}"
+       height="{{cardInfo.images | imageDimensions:'height'}}">
   <div class="card-body">
     <h5 class="card-title">{{cardInfo.title}}</h5>
     <a class="btn btn-primary margin-artist" *ngFor="let relation of cardInfo.relations" type="button"

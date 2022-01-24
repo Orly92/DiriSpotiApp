@@ -12,6 +12,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './shared/error/error.component';
 import {FormsModule} from "@angular/forms";
+import { NoImagePipe } from './shared/pipes/noImage/no-image.pipe';
+import { ImageDimensionsPipe } from './shared/pipes/image-dimensions/image-dimensions.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     HeaderComponent,
     CustomCardComponent,
-    ErrorComponent
+    ErrorComponent,
+    NoImagePipe,
+    ImageDimensionsPipe
   ],
   imports: [
     BrowserModule,

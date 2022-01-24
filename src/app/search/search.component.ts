@@ -32,6 +32,7 @@ export class SearchComponent implements OnInit {
         // @ts-ignore
       this.artists = this.transformService.transformArtistToCustomCardModel(resp.artists.items);
       this.spinner.hide("spinner");
+      console.log(this.artists);
     },err=>{
       this.spinner.hide("spinner");
       this.errors = [{
