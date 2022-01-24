@@ -11,5 +11,6 @@ export interface CustomCardModel {
     id:string,
     type:string,
     uri:string,
-  }[]
+  }[],
+  href:string
 }

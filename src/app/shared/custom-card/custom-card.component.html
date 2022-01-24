@@ -1,4 +1,4 @@
-<div class="card mb-4">
+<div class="card mb-4" [ngClass]="{'pointer' : cardInfo.href !== ''}" (click)="goArtistPage()">
   <img src="{{cardInfo.images | noImage}}" class="card-img-top"
        width="{{cardInfo.images | imageDimensions :'width'}}"
        height="{{cardInfo.images | imageDimensions:'height'}}">

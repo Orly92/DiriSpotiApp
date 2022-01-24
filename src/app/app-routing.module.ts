@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
 import {SearchComponent} from "./search/search.component";
+import {ArtistDetailComponent} from "./artist-detail/artist-detail.component";
 
 const routes: Routes = [{
   path:'home',
@@ -16,8 +17,8 @@ const routes: Routes = [{
   component:HomeComponent,
   pathMatch:'full'
 },{
-  path:'**',
-  component:HomeComponent,
+  path:'artist/:id',
+  component:ArtistDetailComponent,
   pathMatch:'full'
 }];
 

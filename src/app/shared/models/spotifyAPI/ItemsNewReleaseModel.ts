@@ -1,5 +1,6 @@
+import {ImageModel} from "../ImageModel";
 
-interface ExternalUrlNewReleaseModel {
+export interface ExternalUrlNewReleaseModel {
   spotify:string
 }
 
@@ -12,11 +13,6 @@ interface ArtitsNewReleaseModel {
   uri:string,
 }
 
-interface ImagesNewReleaseModel {
-  height:number,
-  url:string,
-  width:number
-}
 
 export interface ItemsNewReleaseModel {
   album_type:string,
@@ -25,7 +21,7 @@ export interface ItemsNewReleaseModel {
   external_urls:ExternalUrlNewReleaseModel,
   href:string,
   id:string,
-  images:ImagesNewReleaseModel[],
+  images:ImageModel[],
   name:string,
   release_date:string,
   release_date_precision:string,

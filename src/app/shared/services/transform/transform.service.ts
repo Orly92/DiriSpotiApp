@@ -20,7 +20,8 @@ export class TransformService {
         images:object.images,
         title:object.name,
         type:"Album",
-        relations:relations
+        relations:relations,
+        href:''
       };
     })
   }
@@ -32,7 +33,8 @@ export class TransformService {
         images:item.images,
         title:item.name,
         type:"Artist",
-        relations:[]
+        relations:[],
+        href:'/artist/' + item.id
       };
     });
   }

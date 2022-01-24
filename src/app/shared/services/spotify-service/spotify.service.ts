@@ -56,11 +56,13 @@ export class SpotifyService {
 
   async getTopTracksByArtist(id:number){
     const url = this.spotifyUrl + `v1/artists/${id}/top-tracks`;
+    const params = new HttpParams()
+      .set("market","ES");
 
     const token = await this.spotifyTokenService.getToken();
     const header = new HttpHeaders()
       .set('Authorization', token);
 
-    return this.http.get(url,{headers:header});
+    return this.http.get(url,{headers:header,params:params});
   }
 }

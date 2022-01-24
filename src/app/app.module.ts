@@ -14,6 +14,7 @@ import { ErrorComponent } from './shared/error/error.component';
 import {FormsModule} from "@angular/forms";
 import { NoImagePipe } from './shared/pipes/noImage/no-image.pipe';
 import { ImageDimensionsPipe } from './shared/pipes/image-dimensions/image-dimensions.pipe';
+import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ImageDimensionsPipe } from './shared/pipes/image-dimensions/image-dimen
     CustomCardComponent,
     ErrorComponent,
     NoImagePipe,
-    ImageDimensionsPipe
+    ImageDimensionsPipe,
+    ArtistDetailComponent
   ],
   imports: [
     BrowserModule,
