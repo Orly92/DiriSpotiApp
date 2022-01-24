@@ -3,7 +3,7 @@ import {SpotifyTokenService} from "../spotify-token/spotify-token.service";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 // @ts-ignore
 import {Observable} from "rxjs/dist/types";
-import {NewReleaseModel} from "../models/newReleaseModel";
+import {NewReleaseModel} from "../../models/newReleaseModel";
 
 @Injectable({
   providedIn: 'root'

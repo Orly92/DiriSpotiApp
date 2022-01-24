@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {SpotifyService} from "../shared/spotify-service/spotify.service";
+import {SpotifyService} from "../shared/services/spotify-service/spotify.service";
 import {ItemsNewReleaseModel} from "../shared/models/ItemsNewReleaseModel";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ErrorModel} from "../shared/models/ErrorModel";

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {SpotifyTokenRespModel} from "../models/spotifyTokenResp";
+import {SpotifyTokenRespModel} from "../../models/spotifyTokenResp";
 
 @Injectable({
   providedIn: 'root'
