@@ -2,14 +2,24 @@
     <div class="col-12 col-md-3">
       <label class="mb-2" for="searchArtistInput">Buscar artista</label>
       <input id="searchArtistInput" class="form-control" type="search" placeholder="Busque artista..."
-             name="searchArtist" aria-label="Search" [(ngModel)]="searchArtist">
+             name="searchArtist" aria-label="Search" [(ngModel)]="searchArtist"
+              (keyup)="search()">
     </div>
     <div class="col-12 col-md-9">
-      <div *ngIf="searchArtist !== ''">
+      <div *ngIf="searchArtist !== '' ">
           <h1 class="text-capitalize">{{searchArtist}}</h1>
           <hr>
       </div>
     </div>
+</div>
+
+<div class="row">
+  <ngx-spinner name="spinner" [fullScreen]="false" type="ball-spin-clockwise"
+               size="small"></ngx-spinner>
+  <div class="col col-6 col-md-4" *ngFor="let item of artists">
+    <custom-card [cardInfo]="item"></custom-card>
+  </div>
+  <error *ngIf="errors.length > 0" [errors]="errors"></error>
 </div>
 
 

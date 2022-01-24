@@ -29,7 +29,7 @@ export class SpotifyService {
     const params = new HttpParams()
       .set("market","ES")
       .set("type","artist")
-      .set("q","searchParam")
+      .set("q",searchParam)
       .set("limit",21)
       .set("offset",0);
 

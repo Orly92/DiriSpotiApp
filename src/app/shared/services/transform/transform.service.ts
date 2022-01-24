@@ -9,7 +9,7 @@ export class TransformService {
 
   constructor() { }
 
-  transformToCustomCardModel(objectArray:ItemsNewReleaseModel[]):CustomCardModel[]{
+  transformNewReleaseToCustomCardModel(objectArray:ItemsNewReleaseModel[]):CustomCardModel[]{
     return objectArray.map(object=>{
       const relations = object.artists.map( artist =>{
         return {
@@ -23,5 +23,17 @@ export class TransformService {
         relations:relations
       };
     })
+  }
+
+  transformArtistToCustomCardModel(items: any[]):CustomCardModel[] {
+    // @ts-ignore
+    return items.map(item=>{
+      return {
+        images:item.images,
+        title:item.name,
+        type:"Artist",
+        relations:[]
+      };
+    });
   }
 }
