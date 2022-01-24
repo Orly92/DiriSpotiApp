@@ -1,19 +1,39 @@
-<div class="container">
-  <div class="row">
-    <ngx-spinner name="spinner1" [fullScreen]="false" type="ball-spin-clockwise"
-                 size="medium"></ngx-spinner>
-    <div class="col-12 col-md-3">
-      <div class="text-center">
-        <img src="{{artist.images| noImage}}}" class="rounded">
-      </div>
-    </div>
-    <div class="col-12 col-md-9">
-      <h1 class="text-capitalize">{{artist.name}}</h1>
-      <hr>
+<div class="row">
+  <ngx-spinner name="spinner1" [fullScreen]="false" type="ball-spin-clockwise"
+               size="medium"></ngx-spinner>
+  <div class="col-12 col-md-3">
+    <div class="text-center">
+      <img src="{{artist.images| noImage}}" class="rounded-circle" width="160" height="160">
     </div>
   </div>
-  <div class="row">
-
+  <div class="col-12 col-md-9">
+    <h1 class="text-capitalize">{{artist.name}}</h1>
+    <hr>
+    <a type="button" target="_blank" class="btn btn-outline-success margin-butt" href="{{artist.external_urls.spotify}}">Abrir Spotify</a>
+    <button class="btn btn-outline-danger" (click)="goBack()">Regresar</button>
   </div>
-
+</div>
+<div class="row mt-5">
+  <ngx-spinner name="spinner2" [fullScreen]="false" type="ball-spin-clockwise"
+               size="medium"></ngx-spinner>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Album</th>
+        <th>Nombre</th>
+        <th>Popularidad</th>
+        <th>Escuchar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let track of topTracks">
+        <td><img src="{{track.album.images | noImage}}" width="80" height="80"></td>
+        <td>{{track.album.name}}</td>
+        <td>{{track.name}}</td>
+        <td>{{track.popularity}}%</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
