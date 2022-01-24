@@ -2,11 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ItemsNewReleaseModel} from "../models/ItemsNewReleaseModel";
 
 @Component({
-  selector: 'album-card',
-  templateUrl: './album-card.component.html',
-  styleUrls: ['./album-card.component.scss']
+  selector: 'custom-card',
+  templateUrl: './custom-card.component.html',
+  styleUrls: ['./custom-card.component.scss']
 })
-export class AlbumCardComponent implements OnInit {
+export class CustomCardComponent implements OnInit {
 
   @Input()
   public album!: ItemsNewReleaseModel;

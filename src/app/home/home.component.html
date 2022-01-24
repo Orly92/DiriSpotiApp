@@ -2,7 +2,7 @@
   <ngx-spinner name="spinner" [fullScreen]="true" type="ball-spin-clockwise"
                size="medium"></ngx-spinner>
   <div class="col col-md-4 col-12" *ngFor="let item of itemsNewRelease">
-    <album-card [album]="item"></album-card>
+    <custom-card [album]="item"></custom-card>
   </div>
   <error *ngIf="newReleaseErrors.length > 0" [errors]="newReleaseErrors"></error>
 </div>

@@ -7,10 +7,11 @@ import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
-import { AlbumCardComponent } from './shared/album-card/album-card.component';
+import { CustomCardComponent } from './shared/custom-card/custom-card.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorComponent } from './shared/error/error.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ErrorComponent } from './shared/error/error.component';
     SearchComponent,
     HomeComponent,
     HeaderComponent,
-    AlbumCardComponent,
+    CustomCardComponent,
     ErrorComponent
   ],
   imports: [
@@ -26,7 +27,8 @@ import { ErrorComponent } from './shared/error/error.component';
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
