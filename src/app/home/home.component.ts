@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {SpotifyService} from "../shared/spotify-service/spotify.service";
 import {ItemsNewReleaseModel} from "../shared/models/ItemsNewReleaseModel";
 import {NgxSpinnerService} from "ngx-spinner";
+import {ErrorModel} from "../shared/models/ErrorModel";
 
 @Component({
   selector: 'home',
@@ -11,11 +12,11 @@ import {NgxSpinnerService} from "ngx-spinner";
 export class HomeComponent implements OnInit {
 
   public itemsNewRelease: ItemsNewReleaseModel[];
-  public newReleaseErrorMessage:string;
+  public newReleaseErrors:ErrorModel[];
 
   constructor(protected spotifyService:SpotifyService,protected spinner:NgxSpinnerService) {
     this.itemsNewRelease = [];
-    this.newReleaseErrorMessage = "";
+    this.newReleaseErrors = [];
   }
 
    ngOnInit(): void {
@@ -32,8 +33,10 @@ export class HomeComponent implements OnInit {
       console.log("se salvaron los datos",this.itemsNewRelease);
       this.hideSpinner("spinner");
     },err=>{
-      console.log("Ocurrio un erro",err);
       this.hideSpinner("spinner");
+      this.newReleaseErrors = [{
+        message:err.message
+      }]
     });
   }
 

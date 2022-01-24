@@ -1,3 +1,10 @@
-<div class="alert-danger row" *ngFor="let error of errors" >
+<div class="container text-center">
+  <img src="../../../assets/img/errorEmoij.jpg" width="400" height="400">
+  <h5 *ngIf="errors.length == 1">Upps!!! Ha ocurrido el siguiente error</h5>
+  <h5 *ngIf="errors.length > 1">Upps!!! Han ocurrido los siguientes errores</h5>
+
+  <span class="alert-danger row mb-2" *ngFor="let error of errors" >
   {{error.message}}
+</span>
 </div>
+

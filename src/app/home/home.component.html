@@ -4,5 +4,6 @@
   <div class="col col-md-4 col-12" *ngFor="let item of itemsNewRelease">
     <album-card [album]="item"></album-card>
   </div>
+  <error *ngIf="newReleaseErrors.length > 0" [errors]="newReleaseErrors"></error>
 </div>
 
