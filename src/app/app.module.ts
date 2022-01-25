@@ -15,6 +15,7 @@ import {FormsModule} from "@angular/forms";
 import { NoImagePipe } from './shared/pipes/noImage/no-image.pipe';
 import { ImageDimensionsPipe } from './shared/pipes/image-dimensions/image-dimensions.pipe';
 import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
+import { SecureDomPipe } from './shared/pipes/secure-dom/secure-dom.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
     ErrorComponent,
     NoImagePipe,
     ImageDimensionsPipe,
-    ArtistDetailComponent
+    ArtistDetailComponent,
+    SecureDomPipe
   ],
   imports: [
     BrowserModule,

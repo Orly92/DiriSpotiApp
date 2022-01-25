@@ -32,7 +32,8 @@
         <td>{{track.album.name}}</td>
         <td>{{track.name}}</td>
         <td>{{track.popularity}}%</td>
-        <td></td>
+        <td><iframe [src]="track.uri | secureDom:'https://open.spotify.com/embed?uri='" width="300" height="80"
+                    frameborder="0" allowtransparency="true"></iframe></td>
       </tr>
     </tbody>
   </table>

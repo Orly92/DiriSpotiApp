@@ -15,5 +15,6 @@ export interface TrackModel {
   duration_ms:number,
   disc_number:number,
   artist:ArtistModel[],
-  album:AlbumModel
+  album:AlbumModel,
+  uri:string
 }
