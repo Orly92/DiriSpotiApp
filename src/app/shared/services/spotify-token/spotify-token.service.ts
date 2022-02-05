@@ -17,6 +17,9 @@ export class SpotifyTokenService {
     this.token = "";
     this.tokenExpiresDate = Date.now();
 
+    //No es recomendable poner las credenciales de la aplicacion en el codigo del cliente ya que se pueden copiar.
+    //En este caso las puse para no tener que cambiar el token y se renueve automatico, ademas que con estas credenciales
+    // solo se tiene acceso a las opciones publicas de spotify
     this.clientId = "f485685a4918473d87a25557024112d0";
     this.clientSecret = "a9025eb6d37b4d8ab5f840aa81f83715";
     this.grantType = "client_credentials";
